@@ -1,0 +1,225 @@
+/* ======================
+   Global Styles
+====================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f7fb;
+    color: #333;
+}
+
+/* ======================
+   Logo
+====================== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 28px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.logo small {
+    font-size: 12px;
+    color: #dcdcdc;
+}
+
+/* ======================
+   Navbar
+====================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #1f3c88;
+    color: white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ======================
+   Buttons
+====================== */
+.btn {
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #28a745;
+    color: white;
+}
+
+.full {
+    width: 100%;
+}
+
+/* ======================
+   Landing Page
+====================== */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ======================
+   Facebook-Style Login Page
+====================== */
+.fb-login-page {
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Left Branding */
+.fb-brand {
+    max-width: 400px;
+}
+
+.fb-brand h1 {
+    font-size: 48px;
+    color: #1f3c88;
+    margin-bottom: 10px;
+}
+
+.fb-brand p {
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+/* Login Card */
+.fb-login-box {
+    background: white;
+    padding: 20px;
+    width: 360px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.fb-login-box input {
+    width: 92%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Login Links */
+.forgot {
+    display: block;
+    margin: 12px 0;
+    color: #1877f2;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+.create {
+    background-color: #42b72a;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* ======================
+   Footer
+====================== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #1f3c88;
+    color: white;
+}
+
+/* ======================
+   Hover Effects
+====================== */
+
+/* Buttons Hover */
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Navbar Links Hover */
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Feature Cards Hover */
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Login Box Hover */
+.fb-login-box:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+}
+
+/* Input Focus (Feels Like Hover) */
+.fb-login-box input:focus {
+    outline: none;
+    border: 1px solid #1877f2;
+    box-shadow: 0 0 4px rgba(24,119,242,0.4);
+}
+
+/* Forgot Password Hover */
+.forgot:hover {
+    text-decoration: underline;
+}
+
+/* Create Account Button Hover */
+.create:hover {
+    background-color: #36a420;
+}
+
+/* Logo Hover (Subtle) */
+.logo-icon:hover {
+    transform: rotate(20deg);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
