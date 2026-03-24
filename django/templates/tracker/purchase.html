@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchase</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="container">
+      <p class="eyebrow">Action Page</p>
+      <h2>Purchase</h2>
+      <form action="{% url 'purchase' %}" method="POST">
+        {% csrf_token %}
+        <input name="item" placeholder="Item name" required>
+        <button type="submit">Buy</button>
+      </form>
+      {% if error %}<p class="error">{{ error }}</p>{% endif %}
+      <a href="{% url 'dashboard' %}" class="back-link">Back to dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

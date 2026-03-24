@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="container">
+      <p class="eyebrow">Event Tracking System</p>
+      <h2>Login</h2>
+      <form action="{% url 'login_post' %}" method="POST">
+        {% csrf_token %}
+        <input name="username" placeholder="Username" required>
+        <button type="submit">Login</button>
+      </form>
+      {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    </div>
+  </div>
+</body>
+</html>

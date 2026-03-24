@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Update</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="container">
+      <p class="eyebrow">Action Page</p>
+      <h2>Profile Update</h2>
+      <form action="{% url 'profile' %}" method="POST">
+        {% csrf_token %}
+        <input name="field" placeholder="Field to update" required>
+        <button type="submit">Update</button>
+      </form>
+      {% if error %}<p class="error">{{ error }}</p>{% endif %}
+      <a href="{% url 'dashboard' %}" class="back-link">Back to dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

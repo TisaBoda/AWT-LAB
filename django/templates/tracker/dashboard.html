@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="container wide">
+      <div class="header-row">
+        <div>
+          <p class="eyebrow">Event Tracking System</p>
+          <h2>Dashboard</h2>
+          <p class="user-line">Logged in as <strong>{{ username }}</strong></p>
+        </div>
+        <div class="dashboard-chip">Live activity</div>
+      </div>
+
+      <div class="menu-links">
+        <a href="{% url 'purchase' %}">Purchase</a>
+        <a href="{% url 'profile' %}">Profile Update</a>
+        <a href="{% url 'logout' %}" class="danger-link">Logout</a>
+      </div>
+
+      <div class="section-card">
+        <h3>Recent Events</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Event</th>
+              <th>Details</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in recent_events %}
+            <tr>
+              <td>{{ event.event_time|date:'M d, Y h:i A' }}</td>
+              <td><span class="badge">{{ event.event_type }}</span></td>
+              <td>{{ event.details|default:'-' }}</td>
+              <td>{{ event.source }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="4">No events found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

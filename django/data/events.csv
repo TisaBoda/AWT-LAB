@@ -1,0 +1,5 @@
+timestamp,username,event_type,details
+2026-03-18T15:26:49.945807+05:30,Tisha,login,user logged in
+2026-03-18T15:27:00.758938+05:30,Tisha,purchase,book
+2026-03-18T15:27:06.890905+05:30,Tisha,profile-update,Sanvi
+2026-03-18T15:27:11.899578+05:30,Tisha,logout,user logged out
