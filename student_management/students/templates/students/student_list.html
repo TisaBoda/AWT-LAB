@@ -1,0 +1,82 @@
+{% extends "students/base.html" %}
+{% block title %}Students — EduTrack{% endblock %}
+{% block page_title %}Students ({{ total }}){% endblock %}
+{% block topbar_actions %}
+  <a href="{% url 'student_create' %}" class="btn btn-primary">+ Add Student</a>
+{% endblock %}
+
+{% block content %}
+<!-- Filters -->
+<div class="card" style="margin-bottom:20px;">
+  <div class="card-body" style="padding:16px 24px;">
+    <form method="get" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+      <div style="flex:2;min-width:200px;">
+        <label>Search</label>
+        {{ filter_form.search }}
+      </div>
+      <div style="flex:1;min-width:150px;">
+        <label>Course</label>
+        {{ filter_form.course }}
+      </div>
+      <div style="min-width:110px;">
+        <label>Year</label>
+        {{ filter_form.year }}
+      </div>
+      <div style="min-width:120px;">
+        <label>Status</label>
+        {{ filter_form.status }}
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="{% url 'student_list' %}" class="btn btn-ghost">Clear</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Student</th><th>Roll No.</th><th>Course</th><th>Year</th><th>Phone</th><th>Status</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+      {% for student in students %}
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="avatar">
+              {% if student.photo %}<img src="{{ student.photo.url }}" alt="">{% else %}{{ student.first_name.0 }}{{ student.last_name.0 }}{% endif %}
+            </div>
+            <div>
+              <div style="font-weight:500;">{{ student.full_name }}</div>
+              <div style="font-size:12px;color:var(--muted);">{{ student.email }}</div>
+            </div>
+          </div>
+        </td>
+        <td style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--accent);">{{ student.roll_number }}</td>
+        <td>{{ student.course.name|default:"—" }}</td>
+        <td style="color:var(--muted);">Year {{ student.year }}</td>
+        <td style="color:var(--muted);font-size:13px;">{{ student.phone|default:"—" }}</td>
+        <td><span class="badge badge-{{ student.status }}">{{ student.get_status_display }}</span></td>
+        <td>
+          <div style="display:flex;gap:6px;">
+            <a href="{% url 'student_detail' student.pk %}" class="btn btn-ghost btn-sm">View</a>
+            <a href="{% url 'student_edit' student.pk %}" class="btn btn-ghost btn-sm">Edit</a>
+            <a href="{% url 'student_delete' student.pk %}" class="btn btn-danger btn-sm">Del</a>
+          </div>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="7">
+        <div class="empty-state">
+          <div class="icon">◎</div>
+          <p>No students found.</p>
+        </div>
+      </td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
