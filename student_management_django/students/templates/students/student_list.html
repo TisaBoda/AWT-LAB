@@ -1,0 +1,8 @@
+<h1>Students</h1>
+<a href="/add/">Add Student</a>
+<ul>
+{% for s in students %}
+<li>{{ s.name }} - {{ s.roll_no }} 
+<a href="/delete/{{ s.id }}">Delete</a></li>
+{% endfor %}
+</ul>
