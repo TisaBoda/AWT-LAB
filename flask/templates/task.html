@@ -2,22 +2,21 @@
 <html>
 <head>
     <title>Task Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Task Details</h2>
+<div class="container">
+    <h2>Task Details</h2>
 
-<p><strong>ID:</strong> {{ task.id }}</p>
-<p><strong>Name:</strong> {{ task.name }}</p>
-<p><strong>Status:</strong> 
-    {% if task.done %}
-        Completed
-    {% else %}
-        Pending
-    {% endif %}
-</p>
+    <p><b>ID:</b> {{ task.id }}</p>
+    <p><b>Name:</b> {{ task.name }}</p>
+    <p><b>Status:</b> 
+        {% if task.done %}Completed{% else %}Pending{% endif %}
+    </p>
 
-<a href="/">Back</a>
+    <a href="/">⬅ Back</a>
+</div>
 
 </body>
 </html>
